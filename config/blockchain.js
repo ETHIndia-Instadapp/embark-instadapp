@@ -52,9 +52,9 @@ module.exports = {
       "numAddresses": "1", // Optional. The number of addresses to get
     },
     enabled: true,
-    networkType: "kovan",
+    networkType: "testnet",
     light: true,
-    host: "https://kovan.infura.io/v3/f702fde988c34ef3bf109793f35bbbdd",
+    host: "kovan.infura.io/v3/f702fde988c34ef3bf109793f35bbbdd",
     port: false,
     protocol: 'https', // <=== must be specified for infura, can also be http, or ws
     type: "rpc",
