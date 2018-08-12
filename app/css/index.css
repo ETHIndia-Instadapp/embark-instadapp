@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,500);
 
 html,
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     scroll-behavior: smooth;
     --main-color: rgb(70, 184, 96);
     --main-color-op9: rgba(70, 184, 96, 0.9);
@@ -82,6 +82,7 @@ body {
     font-size: 36px;
     font-weight: bold;
     margin-bottom: 20px;
+    border-bottom: 2px solid var(--main-color);
 }
 
 .mainBalance {
@@ -101,6 +102,26 @@ body {
     box-sizing: border-box;
     /* transition: all 0.2s ease-in;
     outline: 0px solid var(--main-color); */
+}
+
+.scrollBar::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: var(--main-white);
+    scroll-behavior: smooth;
+    border-radius: 5px;
+}
+
+.scrollBar::-webkit-scrollbar {
+    width: 6px;
+    background-color: var(--main-white);
+}
+
+.scrollBar::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: var(--main-color);
 }
 
 /* .dataBoxes:hover {
@@ -133,12 +154,13 @@ body {
 .processBoxes {
     width: 32%;
     margin: auto;
+    padding: 10px;
     border-radius: 4px;
     box-shadow: 0px 0px 2px 2px var(--main-color-op7);
     background-color: var(--main-white);
     /* box-shadow: 0px 0px 2px 2px var(--main-color-op5); */
-    height: calc(100vh - 250px);
-    overflow-y: hidden;
+    height: calc(100vh - 300px);
+    overflow-y: scroll;
     box-sizing: border-box;
     text-align: center;
     /* height: 500px; */
@@ -394,10 +416,16 @@ input[type=number]::-webkit-outer-spin-button {
 
 .takeLoanInput {
     width: 220px;
-    padding: 10px;
+    padding: 9px 0px;
+    text-align: center;
     box-sizing: border-box;
     outline: 2px solid var(--main-color-op5);
     border: none;
+    font-size: 16px;
+}
+
+.readOnlyInput {
+    background-color: #F0F0F0;
 }
 
 .forNonInputs {
@@ -436,7 +464,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .riskStatus {
-    background-color: rgb(226, 31, 31);
+    background-color: rgb(45, 230, 45);
+    /* background-color: rgb(226, 31, 31); */
     color: var(--main-white)
 }
 
@@ -498,4 +527,23 @@ input[type=number]::-webkit-outer-spin-button {
 .nameBox {
     font-size: 20px;
     margin-bottom: 3px;
+}
+
+
+.processBoxes::-webkit-scrollbar-track {
+    background-color: var(--main-white);
+    scroll-behavior: smooth;
+    border-radius: 6px;
+}
+
+.processBoxes::-webkit-scrollbar {
+    width: 6px;
+    background-color: var(--main-white);
+}
+
+.processBoxes::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: var(--main-color);
 }

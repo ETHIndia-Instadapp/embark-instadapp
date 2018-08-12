@@ -1,10 +1,31 @@
-// hiding boxes in ropsten
-function forRopsten() {
-    kyber = ropsData;
+var buySell = 1;
+var ethBal;
+
+function ethBalance(account) {
+    web3.eth.getBalance(account, function (err, res) {
+        if (!err) {
+            coinOneQtyInWei = String(res);
+            coinOneQty = coinOneQtyInWei / (10 ** coinOneDecimal);
+            ethBal = coinOneQty;
+            if (buySell == 1) {
+                $('.tokenQtyValue').text(`${coinOneQty.toFixed(8)} ${coinOneName}`);
+            }
+            $('#topEthBal').text(`${coinOneName}: ${coinOneQty.toFixed(4)}`)
+        } else {
+            web3Error();
+            console.error(err);
+        };
+    });
 }
 
+// hiding boxes in ropsten
+var kyber = ropsData;
+
 var onMain = false;
+var connection = false;
 var account;
+
+var coinDetail = "eth";
 
 var coinOneName = "ETH",
     coinOneFullName = "Ethereum",
@@ -30,37 +51,34 @@ var coinOneQtyInWei,
     coinTwoQty,
     coinTwoDecimal = 18;
 
-var coinOneAdd = "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee";
-var coinTwoAdd = "0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359";
-var coinContract = web3.eth.contract(tokensAbi).at(coinTwoAdd);;
+var coinOneContract;
+var coinOneAdd = ethAdd;
+var coinTwoAdd;
+var coinContract;
 
+var networkID;
 
 if (typeof web3 !== 'undefined') {
     var web3 = new Web3(web3.currentProvider);
     if (web3.currentProvider.isMetaMask === true || web3.currentProvider.isTrust === true) {
         web3.version.getNetwork((err, netId) => {
-            if (netId == 1) {
-                onMain = true;
+            networkID = netId;
+            if (netId == 3) {
+                var coinTwoAdd = "0xaD6D458402F60fD3Bd25163575031ACDce07538D";
+            } else if (netId == 42) {
+                var coinTwoAdd = "0xc4375b7de8af5a38a93548eb8453a498222c4ff2";
+            } else {
+                alert("You're not on right network. Switch to Kovan Network in Metamask.");
             }
+            coinContract = web3.eth.contract(tokensAbi).at(coinTwoAdd);
+            connection = true;
             account = web3.eth.accounts[0];
-            web3.eth.getBalance(account, function (err, res) {
-                if (!err) {
-                    coinOneQtyInWei = String(res);
-                    coinOneQty = coinOneQtyInWei/(10**coinOneDecimal);
-                    $('.tokenQtyValue').text(`${coinOneQty.toFixed(8)} ${coinOneName}`);
-                } else {
-                    web3Error();
-                    var title = 'ERROR GETTING QUANTITY';
-                    var content = `Unable to get quantity of ETH in your wallet`;
-                    showAlert(title, content);
-                    console.error(err);
-                };
-            });
+            ethBalance(account);
             coinContract.balanceOf(account, function (err, res) {
                 if (!err) {
                     coinTwoQtyInWei = String(res);
                     coinTwoQty = coinTwoQtyInWei/(10**coinTwoDecimal);
-                    // $('.tokenQtyValue').text(`${coinOneQty.toFixed(8)} ${coinOneName}`);
+                    $('#topDaiBal').text(`${coinTwoName}: ${coinTwoQty.toFixed(4)}`)
                 } else {
                     console.log(err);
                 };
