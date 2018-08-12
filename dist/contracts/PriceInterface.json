@@ -1,0 +1,37 @@
+{
+  "className": "PriceInterface",
+  "args": [],
+  "code": "",
+  "runtimeBytecode": "",
+  "realRuntimeBytecode": "",
+  "swarmHash": "",
+  "gasEstimates": null,
+  "functionHashes": {
+    "peek()": "59e02dd7"
+  },
+  "abiDefinition": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "peek",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32"
+        },
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "filename": "main.sol",
+  "gas": "auto",
+  "gasPrice": 100,
+  "type": "file",
+  "deploy": false
+}

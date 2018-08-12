@@ -1,0 +1,43 @@
+{
+  "className": "WETHFace",
+  "args": [],
+  "code": "",
+  "runtimeBytecode": "",
+  "realRuntimeBytecode": "",
+  "swarmHash": "",
+  "gasEstimates": null,
+  "functionHashes": {
+    "deposit()": "d0e30db0",
+    "withdraw(uint256)": "2e1a7d4d"
+  },
+  "abiDefinition": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "wad",
+          "type": "uint256"
+        }
+      ],
+      "name": "withdraw",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "deposit",
+      "outputs": [],
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "function"
+    }
+  ],
+  "filename": "main.sol",
+  "gas": "auto",
+  "gasPrice": 100,
+  "type": "file",
+  "deploy": false
+}
