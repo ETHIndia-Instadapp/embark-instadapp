@@ -12,7 +12,7 @@ module.exports = {
     },
     dappConnection: [
       {provider: "ipfs", host: "localhost", port: 5001, getUrl: "http://localhost:8080/ipfs/"},
-      {provider: "swarm", host: "localhost", port: 5001, getUrl: "http://localhost:8080/ipfs/"}
+      //{provider: "swarm", host: "localhost", port: 5001, getUrl: "http://localhost:8080/ipfs/"}
     ]
   },
   development: {

@@ -13,16 +13,11 @@ module.exports = {
       "ws://localhost:8546",
       "http://localhost:8545"
     ],
-    contracts: {
-      DTwitter: {
-        args: [ ]
-      }
-    },
     gas: "auto",
     gasLimit: 9000000,
     gasPrice: 100
   },
-  testnet: {
+  kovan: {
     deployment:{
       // accounts: [
       //   {
@@ -62,7 +57,7 @@ module.exports = {
       },
       gasLimit: 30000000,
       gasPrice: 91200,
-      host: "https://ropsten.infura.io/v3/f702fde988c34ef3bf109793f35bbbdd",
+      host: "ropsten.infura.io/v3/f702fde988c34ef3bf109793f35bbbdd",
       port: false,
       protocol: 'https',
       type: "rpc"
